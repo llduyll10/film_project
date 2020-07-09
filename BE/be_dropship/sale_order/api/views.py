@@ -26,10 +26,16 @@ def api_create_show_time(request):
         serializer = ShowTimePostCreateSerializers(data=data)
         amount_chair= request.data['amount_chair']
         #Create list chair
+        list_chair = []
+        for _ in range(amount_chair + 1):
+            data_chair = {'type_chair':False,'price':75000.00, 'status':False}
+            chair_serializer = ChairPostSerializers(data=data_chair)
+            if chair_serializer.is_valid():
+                chair_serializer.save()
+                list_chair.append(chair_serializer)
 
-        chair = ChairPost.objects.create(type_chair=False, status=False, price=75000.00)
-        for _ in range (amount_chair + 1):
-            list_chair = [chair] * amount_chair
+
+       
          
         # chair_serializer = ChairPostSerializers(data=chair)
         # if chair_serializer.is_valid():
@@ -37,7 +43,7 @@ def api_create_show_time(request):
         #     list_chair = [chair_serializer] * amount_chair
 
         
-        print(list_chair[0])
+        print(list_chair)
         data = {}
         return Response({'status':'ok'})
 
