@@ -34,6 +34,7 @@ def api_create_show_time(request):
         list_chair = [chair_serializer] * amount_chair
         print(list_chair)
         data = {}
+        return Response({'status':'ok'})
 
 
 
