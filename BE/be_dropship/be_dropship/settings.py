@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     # App
     'account',
     'film',
-    'sale_order',
+    'film_ticket',
+    'test_nested_relationship'
 ]
 
 MIDDLEWARE = [
@@ -88,6 +89,9 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',
     ),
+    'DEFAULT_PARSER_CLASSES': [
+        'rest_framework.parsers.JSONParser',
+    ],
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 10,
 }

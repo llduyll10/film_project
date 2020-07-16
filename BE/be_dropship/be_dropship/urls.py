@@ -23,5 +23,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/account/', include('account.api.urls')),
     path('api/film/', include('film.api.urls')),
-     path('api/show-time/', include('sale_order.api.urls')),
+    path('api/ticket/', include('film_ticket.api.urls')),
+    path('api/album/', include('test_nested_relationship.api.urls')),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
